@@ -16,5 +16,8 @@
     },
     "require": {
         "zendframework/zend-eventmanager": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.*"
     }
 }

@@ -3,6 +3,7 @@ namespace Girc;
 use Girc\BotInterface;
 use Girc\Command\Join;
 use Girc\Command\Nick;
+use Girc\Command\Pong;
 use Girc\Command\User;
 use Girc\Connection\ConnectionInterface;
 use Zend\EventManager\EventManager;
@@ -52,7 +53,11 @@ class Bot implements BotInterface
     public function run()
     {
         do {
-            $this->getEventManager()->trigger("Bot::run", $this, array('bot' => $this));
+            $message = $this->getConnection()->get();
+            if(preg_match("/PING/", $message)){
+                $this->getConnection()->send(Pong::send());
+            }
+            $this->getEventManager()->trigger("Bot::run", $this, array('bot' => $this, 'message' => $message));
         } while (true);
     }
 }
