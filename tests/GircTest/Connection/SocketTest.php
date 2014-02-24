@@ -3,7 +3,11 @@ namespace GircTest\Connection;
 
 class SocketTest extends \PHPUnit_Framework_TestCase
 {
-    public function setUp(){}
+
+    public function setUp()
+    {
+
+    }
 
     public function testGet()
     {

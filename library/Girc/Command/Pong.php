@@ -3,7 +3,7 @@ namespace Girc\Command;
 
 class Pong extends AbstractCommand
 {
-    static public function send()
+    public static function send()
     {
         return "PONG";
     }

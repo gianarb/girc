@@ -1,5 +1,6 @@
 <?php
 namespace Girc;
+
 use Girc\BotInterface;
 use Girc\Command\Join;
 use Girc\Command\Nick;
@@ -21,14 +22,14 @@ class Bot implements BotInterface
     {
         $this->getEventManager();
         $this->setConnection($c);
-        $this->getConnection()->send(User::send('BotDiProva','BotDiProva'));
+        $this->getConnection()->send(User::send('BotDiProva', 'BotDiProva'));
         $this->getConnection()->send(Nick::send('BotDiProva'));
         $this->getConnection()->send(Join::send('#BotDiProva'));
     }
 
     public function getEventManager()
     {
-        if($this->eventManager instanceof EventManager){
+        if ($this->eventManager instanceof EventManager) {
             return $this->eventManager;
         }
         return $this->eventManager = new EventManager();
@@ -54,7 +55,7 @@ class Bot implements BotInterface
     {
         do {
             $message = $this->getConnection()->get();
-            if(preg_match("/PING/", $message)){
+            if (preg_match("/PING/", $message)) {
                 $this->getConnection()->send(Pong::send());
             }
             $this->getEventManager()->trigger("Bot::run", $this, array('bot' => $this, 'message' => $message));

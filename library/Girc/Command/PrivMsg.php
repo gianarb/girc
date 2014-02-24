@@ -3,7 +3,7 @@ namespace Girc\Command;
 
 class PrivMsg extends AbstractCommand
 {
-    static public function send($channel, $message)
+    public static function send($channel, $message)
     {
         return "PRIVMSG $channel :$message";
     }

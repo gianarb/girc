@@ -3,8 +3,8 @@ namespace GircTest;
 
 use Girc\Bot;
 
-class BotTest extends \PHPUnit_Framework_TestCase {
-
+class BotTest extends \PHPUnit_Framework_TestCase
+{
     protected $bot;
 
     public function setUp()
@@ -18,7 +18,7 @@ class BotTest extends \PHPUnit_Framework_TestCase {
             ->setConstructorArgs(array('irc.freenode.net', 6667))
             ->getMock();
         $b = new Bot($connection);
-        $this->assertInstanceOf('\Zend\EventManager\EventManager' ,$b->getEventManager());
+        $this->assertInstanceOf('\Zend\EventManager\EventManager', $b->getEventManager());
     }
 
     public function testGetConnection()
@@ -27,6 +27,6 @@ class BotTest extends \PHPUnit_Framework_TestCase {
             ->setConstructorArgs(array('irc.freenode.net', 6667))
             ->getMock();
         $b = new Bot($connection);
-        $this->assertInstanceOf('\Girc\Connection\Socket' ,$b->getConnection());
+        $this->assertInstanceOf('\Girc\Connection\Socket', $b->getConnection());
     }
 }
