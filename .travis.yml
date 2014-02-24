@@ -15,7 +15,7 @@ before_script:
   - composer selfupdate
   - composer install --dev --prefer-source;
   - php -n ./vendor/bin/phpunit
-  - ./vendor/bin/phpcs --standard=PSR2 ./src/ ./tests/
+  - ./vendor/bin/phpcs --standard=PSR2 ./library/ ./tests/
 
 after_script:
   - php vendor/bin/coveralls -v
