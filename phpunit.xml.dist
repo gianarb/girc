@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<phpunit
+        bootstrap="./tests/Bootstrap.php"
+        colors="true"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        verbose="true"
+        stopOnFailure="false"
+        processIsolation="false"
+        backupGlobals="false"
+        syntaxCheck="true"
+        >
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./library</directory>
+        </whitelist>
+    </filter>
+    <testsuite name="Sandbox Test Suite">
+       <directory>./tests/GircTest</directory>
+   </testsuite>
+</phpunit>
