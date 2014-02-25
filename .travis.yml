@@ -17,8 +17,13 @@ before_script:
   - php -n ./vendor/bin/phpunit
   - ./vendor/bin/phpcs --standard=PSR2 ./library/ ./tests/
 
+script:
+ - vendor/bin/phpunit --coverage-clover=./build/coverage.clover
+
 after_script:
   - php vendor/bin/coveralls -v
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --format=php-clover ./build/coverage.clover
 
 notifications:
   email: false
