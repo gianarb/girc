@@ -6,7 +6,7 @@ use Girc\Command\CommandInterface;
 interface ConnectionInterface
 {
     /**
-     * @param array $c
+     * @return void
      */
     public function __construct($host, $port);
 
